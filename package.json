@@ -1,0 +1,49 @@
+{
+    "name": "dsh-read-daily",
+    "version": "0.1.0",
+    "description": "小喵鲸学习：每天最多 4 次提醒她去网上读点东西（搜索→读正文→想记就写日记），也支持她自己随时去读",
+    "type": "module",
+    "main": "index.js",
+    "exports": {
+        ".": "./index.js",
+        "./package.json": "./package.json",
+        "./cordis.patch.yml": "./cordis.patch.yml",
+        "./client": "./client.js"
+    },
+    "files": [
+        "index.js",
+        "client.js",
+        "cordis.patch.yml",
+        "lib"
+    ],
+    "engines": {
+        "dsh": ">=0.1.7-rc.1",
+        "node": ">=22"
+    },
+    "peerDependencies": {
+        "@deepseek-ai/dsh-tools": "*",
+        "@deepseek-ai/schemastery": "*"
+    },
+    "peerDependenciesMeta": {
+        "@deepseek-ai/dsh-tools": {
+            "optional": true
+        },
+        "@deepseek-ai/schemastery": {
+            "optional": true
+        }
+    },
+    "dsh": {
+        "bundle": {
+            "patch": "./cordis.patch.yml"
+        },
+        "client": {
+            "platform": "web",
+            "inject": [
+                "@deepseek-ai/dsh-client-runtime",
+                "@deepseek-ai/dsh-client-ui-settings",
+                "@deepseek-ai/dsh-client-ui-settings-plugins"
+            ]
+        }
+    },
+    "license": "MIT"
+}
