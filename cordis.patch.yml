@@ -1,0 +1,6 @@
+# dsh-read-daily —— bundle patch
+# 不写 config（拿不到 schemastery，带 config 会激活失败）；默认值在 index.js 的 DEFAULTS。
+
+- insert:
+    - id: read-daily
+      name: dsh-read-daily
